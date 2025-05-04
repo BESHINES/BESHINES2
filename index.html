@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:image" content="https://BESHINES.github.io/BESHINES/image3.jpg?v=1">
+  <meta property="og:title" content="BESHINES">
+  <meta property="og:description" content="Private Matchmaking for SHINES">
+  <meta property="og:url" content="https://BESHINES.github.io/BESHINES/#">
+  <meta property="og:type" content="website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DONT BE SHY, JUST BE SHINES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="right-section">
+    <header id="header"></header>
+    <section id="abstract-section"></section>
+    <section id="contents-section"></section>
+    <button class="toggle-Meet-the-Team" onclick="document.querySelector('.profile-section').classList.toggle('show')">
+      Meet the Team
+    </button>
+    <section class="profile-section" id="team-section"></section>
+  </div>
+
+  <script>
+    // HTML 파트 불러오기
+    async function loadSection(id, file) {
+      const res = await fetch(file);
+      const text = await res.text();
+      document.getElementById(id).innerHTML = text;
+    }
+
+    loadSection("header", "header.html");
+    loadSection("abstract-section", "abstract.html");
+    loadSection("contents-section", "contents.html");
+    loadSection("team-section", "team.html");
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.querySelector('.toggle-Meet-the-Team');
+      const profileSection = document.querySelector('.profile-section');
+      toggleBtn.addEventListener('click', () => {
+        const visible = profileSection.classList.contains('show');
+        toggleBtn.textContent = visible ? 'Meet the Team' : 'Meet the Team';
+      });
+    });
+  </script>
+
+</body>
+</html>
