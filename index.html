@@ -1,49 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta property="og:image" content="https://BESHINES.github.io/BESHINES2/image3.jpg?v=1">
-  <meta property="og:title" content="BESHINES">
-  <meta property="og:description" content="Private Matchmaking for SHINES">
-  <meta property="og:url" content="https://BESHINES.github.io/BESHINES2/#">
-  <meta property="og:type" content="website">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DONT BE SHY, JUST BE SHINES</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:image" content="https://BESHINES.github.io/BESHINES2/image3.jpg?v=1" />
+  <title>BESHINES</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="right-section">
-    <header id="header"></header>
-    <section id="abstract-section"></section>
-    <section id="contents-section"></section>
-    <button class="toggleMeetTheTeam" onclick="document.querySelector('.profile-section').classList.toggle('show')">
-      Meet the Team
-    </button>
-    <section class="profile-section" id="team-section"></section>
-  </div>
+  <!-- 1. 헤더 -->
+  <div id="header-container"></div>
+
+  <!-- 2. 앱스트랙트 -->
+  <div id="abstract-container"></div>
+
+  <!-- 3. 콘텐츠 -->
+  <div id="contents-container"></div>
+
+  <!-- 4. Meet the Team -->
+  <button class="toggleMeetTheTeam" onclick="
+    const section = document.querySelector('.profile-section');
+    section.classList.toggle('show');
+  ">Meet the Team</button>
+  <div id="team-container"></div>
 
   <script>
-    // HTML 파트 불러오기
-    async function loadSection(id, file) {
-      const res = await fetch(file);
-      const text = await res.text();
-      document.getElementById(id).innerHTML = text;
-    }
-
-    loadSection("header", "header.html");
-    loadSection("abstract-section", "abstract.html");
-    loadSection("contents-section", "contents.html");
-    loadSection("team-section", "team.html");
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleBtn = document.querySelector('.toggleMeetTheTeam');
-      const profileSection = document.querySelector('.profile-section');
-      toggleBtn.addEventListener('click', () => {
-        const visible = profileSection.classList.contains('show');
-        toggleBtn.textContent = visible ? 'Meet the Team' : 'Meet the Team';
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("header.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("header-container").innerHTML = data);
+      fetch("abstract.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("abstract-container").innerHTML = data);
+      fetch("contents.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("contents-container").innerHTML = data);
+      fetch("team.html")
+        .then(res => res.text())
+        .then(data => document.getElementById("team-container").innerHTML = data);
     });
   </script>
 
