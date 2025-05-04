@@ -1,81 +1,177 @@
 body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: 'Noto Serif KR', serif;
   margin: 0;
-  padding: 0;
-  background: #fff;
-  color: #333;
+  background-color: #0e1a2b;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-attachment: fixed;
+  overflow: auto;
 }
 
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to bottom, rgba(10,10,30,0.7), rgba(0,0,0,0.8)), url('https://BESHINES.github.io/BESHINES2/image2.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+a {
+  color: #ffdc8b;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* 헤더 */
 header {
-  background: #cc0066;
-  color: #fff;
-  padding: 40px 20px;
+  margin: 40px auto 20px;
+  padding: 30px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
   text-align: center;
+  max-width: 800px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
 }
-
 header h1 {
-  margin: 0;
-  font-size: 2em;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.7em;
+  color: #f8f8f8;
+  margin-bottom: 10px;
 }
 header p {
+  color: #dddddd;
+  font-weight: 400;
+  font-size: 1.15rem;
+  text-shadow: 0 0 1px #000;
+}
+
+/* 섹션 공통 */
+section {
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  max-width: 800px;
+}
+h2, p, .project-title {
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+.project-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.project p {
   font-size: 1.1em;
 }
 
-.abstract-section {
-  margin: 40px 20px;
-  text-align: center;
-}
-.abstract-section p {
-  margin: 16px 0;
-  font-size: 1.05em;
-}
-
-.content-section {
-  margin: 40px 20px;
-}
-.content-section h2 {
-  font-size: 1.5em;
-  color: #cc0066;
-  margin-top: 30px;
-  margin-bottom: 12px;
-}
-.content-section ul,
-.content-section ol {
-  padding-left: 20px;
-  margin-bottom: 20px;
-}
-.content-section li {
-  margin-bottom: 8px;
-}
-.content-section .note,
-.content-section .notice {
-  font-size: 0.95em;
-  color: #777;
-  margin-top: 10px;
-}
-
-.toggleMeetTheTeam {
-  display: block;
-  margin: 30px auto;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #cc0066;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
+/* 프로필 섹션 */
 .profile-section {
-  display: none;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-top: 2px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: max-height 0.6s ease, opacity 0.6s ease, visibility 0.6s;
 }
 .profile-section.show {
-  display: block;
+ max-height: 1500px;  /* 필요 시 적절히 조절 */
+  visibility: visible;
+  opacity: 1;
 }
+
+.profile-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  color: white;
+}
+
 .profile-container {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 16px;
-  margin: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.profile-left {
+  flex: 1;
+  min-width: 200px;
+}
+.profile-right {
+  margin-left: 20px;
+}
+.profile-photo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid white;
+  border-radius: 8px;
+}
+.profile-name {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+.profile-info p {
+  margin: 5px 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.2em;
+  }
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profile-right {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .profile-photo {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+  }
+}
+
+/* 토글 버튼 */
+.toggleMeettheTeam {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 30px auto;
+  display: block;
+  transition: background-color 0.3s;
+}
+.toggleMeettheTeam:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
