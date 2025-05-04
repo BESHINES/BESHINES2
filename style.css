@@ -1,0 +1,132 @@
+/* 기본 설정 */
+body {
+  margin: 0;
+  font-family: 'Noto Serif KR', serif;
+  background-color: #fffdf9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.right-section {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* 헤더 */
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* 추상 영역 */
+.abstract-section {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.abstract-section p {
+  margin: 16px 0;
+  font-size: 1.05em;
+}
+
+/* 콘텐츠 영역 */
+.content-section {
+  margin-bottom: 60px;
+}
+
+.content-section h2 {
+  font-size: 1.5em;
+  color: #cc0066;
+  margin-top: 30px;
+  margin-bottom: 12px;
+}
+
+.content-section ul,
+.content-section ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.content-section li {
+  margin-bottom: 8px;
+}
+
+.content-section .note,
+.content-section .notice {
+  font-size: 0.95em;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* 팀 소개 토글 버튼 */
+.toggleMeetTheTeam {
+  display: block;
+  margin: 40px auto 0;
+  background-color: #cc0066;
+  color: white;
+  font-size: 1em;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleMeetTheTeam:hover {
+  background-color: #a60052;
+}
+
+/* 프로필 섹션 (초기 숨김) */
+.profile-section {
+  display: none;
+  margin-top: 40px;
+}
+
+.profile-section.show {
+  display: block;
+}
+
+.profile-box {
+  background-color: #fdf4f8;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-left {
+  flex: 1;
+  min-width: 220px;
+}
+
+.profile-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.profile-photo {
+  max-width: 180px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
